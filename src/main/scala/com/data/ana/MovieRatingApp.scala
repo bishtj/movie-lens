@@ -19,7 +19,6 @@ object MovieRatingApp extends EitherTryHandler {
 
     val spark = SparkSession
       .builder()
-      .master("local[2]")
       .appName("MovieLen Analytics App")
       .getOrCreate()
 

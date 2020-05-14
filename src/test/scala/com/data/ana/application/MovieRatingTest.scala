@@ -61,7 +61,7 @@ class MovieRatingTest extends MovieLensCommonTest with DataFrameSuiteBase {
     val expectedRows = Seq(
       Row("1", "Toy Story (1995)", "Animation|Children's|Comedy", 7, 5, 6.0),
       Row("2", "Jumanji (1995)", "Adventure|Children's|Fantasy", 50, 10, 30.0),
-      Row("3", "Grumpier Old Men (1995)", "Comedy|Romance", 40, 30, 35.0),
+      Row("3", "Grumpier Old Men (1995)", "Comedy|Romance", 40, 30, 35.0)
     )
     rowsToDataFrame(expectedRows, ExpectedSchema)
   }

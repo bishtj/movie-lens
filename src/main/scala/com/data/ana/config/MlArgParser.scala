@@ -1,5 +1,5 @@
 package com.data.ana.config
-
+import cats.implicits._
 import com.data.ana.domain.MovieLenError
 
 case class MlArgParser(args: Array[String]) extends Serializable {

@@ -4,7 +4,7 @@ import com.data.ana.common.EitherTryHandler
 import com.data.ana.domain.MovieLenError
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
-
+import cats.implicits._
 import scala.util.Try
 
 case class MovieRatingsAnalytics(movieDf: DataFrame, ratingDf: DataFrame) extends EitherTryHandler {
@@ -53,7 +53,7 @@ case class MovieRatingsAnalytics(movieDf: DataFrame, ratingDf: DataFrame) extend
           .agg(
             max(col("Rating")).as("MaxRating"),
             min(col("Rating")).as("MinRating"),
-            avg(col("Rating")).as("AvgRating"),
+            avg(col("Rating")).as("AvgRating")
           )
       }
     )
