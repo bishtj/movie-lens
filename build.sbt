@@ -9,10 +9,15 @@ val scalaTestVersion = "3.0.0"
 val sparkTestingBaseVersion = "2.4.5_0.14.0"
 
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % sparkVersion,
-  "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
-  "org.typelevel" %% "cats-core" % catsVersion,
 
+  "org.apache.spark" %% "spark-core" % sparkVersion ,
+  "org.apache.spark" %% "spark-sql" % sparkVersion ,
+
+  //"org.apache.spark" %% "spark-core" % sparkVersion % "provided",
+  //"org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
+  
+  "org.typelevel" %% "cats-core" % catsVersion,
+  "org.slf4j" % "slf4j-log4j12" % "1.7.30",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "com.holdenkarau" %% "spark-testing-base" % sparkTestingBaseVersion % "test"
 )
@@ -26,6 +31,7 @@ assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs@_*) => MergeStrategy.discard
   case x => MergeStrategy.first
 }
+
 
 
 
