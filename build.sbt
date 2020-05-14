@@ -16,6 +16,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "com.holdenkarau" %% "spark-testing-base" % sparkTestingBaseVersion % "test"
 )
+// Parallel execution of tests not supported, as all tests should share same spark session
+parallelExecution in ThisBuild := false
 
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 

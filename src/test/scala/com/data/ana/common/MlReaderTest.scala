@@ -10,7 +10,7 @@ class MlReaderTest extends MovieLensCommonTest with DataFrameSuiteBase {
 
   val BasePath = "src/test/resources"
 
-  test("Should load a Movie and Rating raw data successfully") {
+  test("Should load a Movie and Ratings data successfully") {
     implicit val spark1 = spark
 
     assertReadMovieLens("input_movies.dat", MovieSchemaRaw, expectedMovieDf, "MovieID")
@@ -39,9 +39,9 @@ class MlReaderTest extends MovieLensCommonTest with DataFrameSuiteBase {
 
   private def expectedRatingDf(implicit spark: SparkSession) = {
     val rows = Seq(
-      Row("1", "4", "5", "978300760"),
-      Row("2", "5", "3", "978302109"),
-      Row("3", "6", "4", "978301968")
+      Row("10", "1", "5", "978300760"),
+      Row("20", "2", "3", "978302109"),
+      Row("30", "3", "4", "978301968")
     )
     rowsToDataFrame(rows, RatingSchemaRaw)
   }
