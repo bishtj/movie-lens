@@ -1,6 +1,9 @@
 .idea
 target/*
 *.iml
-*.dat
+movies.dat
+ratings.dat
+users.dat
+
 project/target/*
 project/project

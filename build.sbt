@@ -11,7 +11,7 @@ val sparkTestingBaseVersion = "2.4.5_0.14.0"
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
-//  "org.typelevel" %% "cats-core" % catsVersion,
+  "org.typelevel" %% "cats-core" % catsVersion,
 
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "com.holdenkarau" %% "spark-testing-base" % sparkTestingBaseVersion % "test"

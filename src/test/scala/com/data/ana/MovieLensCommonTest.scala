@@ -1,11 +1,19 @@
 package com.data.ana
 
 import com.data.ana.domain.MovieLenError
-import org.apache.spark.sql.types.StructType
+import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType, TimestampType}
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.scalatest.FunSuite
 
 class MovieLensCommonTest extends FunSuite {
+
+  val RatingSchemaNormalised = StructType(
+    StructField("UserID", StringType) ::
+      StructField("MovieID", StringType) ::
+      StructField("Rating", IntegerType) ::
+      StructField("Timestamp", TimestampType) ::
+      Nil
+  )
 
   def eitherAssert(eitherResult: Either[MovieLenError, DataFrame]): DataFrame = {
     eitherResult match {

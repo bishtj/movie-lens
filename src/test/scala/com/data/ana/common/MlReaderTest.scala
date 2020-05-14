@@ -26,7 +26,6 @@ class MlReaderTest extends MovieLensCommonTest with DataFrameSuiteBase {
     val actualDf = eitherAssert(delimReaderDf)
 
     assertDataFrameEquals(orderBy(expectedDf), orderBy(actualDf))
-
   }
 
   private def expectedMovieDf(implicit spark: SparkSession) = {
