@@ -1,10 +1,12 @@
+package com.data.ana.application
+
 import com.holdenkarau.spark.testing.DataFrameSuiteBase
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.scalatest.FunSuite
 
 
-class DataFrameSampleTest extends FunSuite with DataFrameSuiteBase {
+class NormaliseTest extends FunSuite with DataFrameSuiteBase {
 
 
   test("First sbt based dataframe test") {
