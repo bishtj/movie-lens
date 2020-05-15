@@ -41,7 +41,7 @@ object MovieRatingApp extends EitherTryHandler {
       _ <- writeToFile(movieRateDf, args.ratingOutputFile.get)
       _ <- writeToFile(movieRateDf, args.movieRatingOutputFile.get)
 
-    } yield movieDf
+    } yield movieRateDf
 
     movieLenResult leftMap {
       case MovieLenError(err) => handleError(err)
