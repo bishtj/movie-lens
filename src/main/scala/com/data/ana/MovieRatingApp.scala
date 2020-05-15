@@ -1,11 +1,11 @@
 package com.data.ana
 
+import cats.implicits._
 import com.data.ana.application.{MovieRatingsAnalytics, movieNormalise, ratingNormalise}
 import com.data.ana.common.{EitherTryHandler, MlReader}
 import com.data.ana.config.MlArgParser
 import com.data.ana.domain.{MovieLenError, MovieSchemaRaw, RatingSchemaRaw}
-import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
-import cats.implicits._
+import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.slf4j.LoggerFactory
 
 import scala.util.Try

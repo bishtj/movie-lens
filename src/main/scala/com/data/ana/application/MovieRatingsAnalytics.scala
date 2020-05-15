@@ -14,9 +14,9 @@ case class MovieRatingsAnalytics(movieDf: DataFrame, ratingDf: DataFrame) extend
 
       movieRatingStatsDf <- computeMovieRating()
       enrichMovieStatsDf <- enrichMovieData(movieRatingStatsDf)
-      responseDf <- selectColumns(enrichMovieStatsDf)
+      selectedOrderColDf <- selectColumns(enrichMovieStatsDf)
 
-    } yield responseDf
+    } yield selectedOrderColDf
 
 
   }

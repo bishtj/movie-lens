@@ -12,9 +12,8 @@ case object movieNormalise extends EitherTryHandler {
 
     eitherR(
       Try {
-
+        // TODO : Any normalisation on movie dataset. Nothing needed for now.
         dfInput
-        // TODO : Any normalisation on movie dataset. Nothing needed for now
       }
     )
   }
