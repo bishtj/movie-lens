@@ -3,12 +3,20 @@ This is a sample project to aggregate movie ratings
 
 ## Set up 
 Follow below steps to run spark job.
-Set environment variables
+
+### Environment variables
+
 SPARK_HOME=<Installed Spark release 2.4.5 home>
+
 export PATH=${SPARK_HOME}/bin:${PARH}
+
+### Build
+
 Navigate to project directory root and build as appropriate commands listed below.
 
 sbt clean 
+
+sbt test
 
 sbt package 
 
