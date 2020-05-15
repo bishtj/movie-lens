@@ -1,3 +1,4 @@
+# Make file to run job
 MASTER_URL ?= 'local'
 DEPLOY_MODE ?= 'client'
 JAR_PATH ?= 'Path/to/bin'
