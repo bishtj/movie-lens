@@ -29,16 +29,16 @@ object MovieRatingApp extends EitherTryHandler {
 
       args <- commandLineConfiguration(args)
 
-      movieDf <- loadMovieData(args)
-      rateDf <- loadRateData(args)
+      movieDataDf <- loadMovieData(args)
+      rateDataXDf <- loadRateData(args)
 
-      movieNormDf <- movieNormalise(movieDf)
-      rateNormDf <- ratingNormalise(rateDf)
+      movieNormDf <- movieNormalise(movieDataDf)
+      rateNormXDf <- ratingNormalise(rateDataXDf)
 
-      movieRateDf <- MovieRatingsAnalytics(movieNormDf, rateNormDf).transform()
+      movieRateDf <- MovieRatingsAnalytics(movieNormDf, rateNormXDf).transform()
 
-      _ <- writeToFile(movieRateDf, args.movieOutputFile.get)
-      _ <- writeToFile(movieRateDf, args.ratingOutputFile.get)
+      _ <- writeToFile(movieDataDf, args.movieOutputFile.get)
+      _ <- writeToFile(rateDataXDf, args.ratingOutputFile.get)
       _ <- writeToFile(movieRateDf, args.movieRatingOutputFile.get)
 
     } yield movieRateDf
