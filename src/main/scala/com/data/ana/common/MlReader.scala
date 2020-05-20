@@ -11,6 +11,8 @@ case object MlReader extends EitherTryHandler {
   def apply(filePath: String, delimiter: String, schema: StructType)(implicit spark: SparkSession): Either[MovieLenError, DataFrame] = {
     eitherR(
       Try {
+        // Since multi Characters delimiter ('::') are not supported by DataFrameReader below Spark 3.x,
+        // so have to use delimiter using RDDs functions
         val rdds = spark
           .sparkContext
           .textFile(filePath)
