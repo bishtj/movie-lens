@@ -15,9 +15,9 @@ class RatingNormaliseTest extends MovieLensCommonTest with DataFrameSuiteBase {
     implicit val spark1 = spark
     implicit val orderColumn = "UserID"
     val expectedRows = Seq(
-      Row("1", "4", 5, Timestamp.valueOf("1970-01-01 01:00:05")),
-      Row("2", "5", 3, Timestamp.valueOf("1970-01-01 01:00:03")),
-      Row("3", "6", 4, Timestamp.valueOf("1970-01-01 01:00:04"))
+      Row("1", "4", 5, Timestamp.valueOf("2000-12-31 22:12:00")),
+      Row("2", "5", 3, Timestamp.valueOf("2000-12-31 22:35:00")),
+      Row("3", "6", 4, Timestamp.valueOf("2000-12-31 22:32:00"))
     )
     val expectedDf = rowsToDataFrame(expectedRows, RatingSchemaNormalised)
 
@@ -27,7 +27,6 @@ class RatingNormaliseTest extends MovieLensCommonTest with DataFrameSuiteBase {
       Row("3", "6", "4", "978301968")
     )
     val inputDf = rowsToDataFrame(rows, RatingSchemaRaw)
-
     val normalisedDf = ratingNormalise(inputDf)
 
     val actualDf = eitherAssert(normalisedDf)

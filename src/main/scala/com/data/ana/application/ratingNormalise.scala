@@ -3,7 +3,7 @@ package com.data.ana.application
 import com.data.ana.common.EitherTryHandler
 import com.data.ana.domain.MovieLenError
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{IntegerType, TimestampType}
 import cats.implicits._
 import scala.util.Try
@@ -36,7 +36,7 @@ case object ratingNormalise extends EitherTryHandler {
     eitherR(
       Try {
         df
-          .withColumn("TimestampNew", col("Rating").cast(TimestampType))
+          .withColumn("TimestampNew", from_unixtime(col("Timestamp"), "yyyy-MM-dd HH:mm:SS").cast(TimestampType))
           .drop("Timestamp")
           .withColumnRenamed("TimestampNew", "Timestamp")
       }
