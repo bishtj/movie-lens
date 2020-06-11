@@ -8,7 +8,7 @@ Follow below steps to run spark job.
 
 SPARK_HOME=<Installed Spark release 2.4.5 home>
 
-export PATH=${SPARK_HOME}/bin:${PARH}
+export PATH=${SPARK_HOME}/bin:${PATH}
 
 ### Build
 
